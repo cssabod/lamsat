@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لمسة عطر | عالم الفخامة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #3b2f2f;
+            --accent-color: #c5a059; /* لون ذهبي خفيف للفخامة */
+            --bg-color: #fcfaf8;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            margin: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            scroll-behavior: smooth;
+        }
+
+        /* القائمة العلوية */
+        nav {
+            background-color: white;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+            cursor: pointer;
+            font-weight: 400;
+            transition: 0.3s;
+        }
+
+        nav ul li:hover {
+            color: var(--accent-color);
+        }
+
+        /* قسم الترحيب (Hero Section) */
+        .hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1541643600914-78b084683601?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h2 { font-size: 48px; margin-bottom: 10px; }
+        .hero p { font-size: 20px; margin-bottom: 20px; }
+
+        /* الأقسام */
+        .page { display: none; padding: 40px 5%; }
+        .active-page { display: block; }
+
+        /* تنسيق كروت المنتجات */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .price {
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+            display: block;
+            margin: 10px 0;
+        }
+
+        .btn-order {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            width: 100%;
+            font-family: 'Cairo';
+            transition: 0.3s;
+        }
+
+        .btn-order:hover {
+            background-color: var(--accent-color);
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: #ccc;
+            padding: 40px 5%;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .contact-info { margin-top: 15px; color: white; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">🌸 لمسة عطر</div>
+        <ul>
+            <li onclick="showPage('home')">الرئيسية</li>
+            <li onclick="showPage('shop')">المتجر</li>
+        </ul>
+    </nav>
+
+    <div id="home" class="page active-page">
+        <section class="hero">
+            <h2>سحر الروائح الشرقية</h2>
+            <p>اكتشف تشكيلتنا الحصرية من العطور العالمية والأصلية</p>
+            <button class="btn-order" style="width: auto;" onclick="showPage('shop')">تسوّق الآن</button>
+        </section>
+
+        <section style="text-align: center; margin-top: 50px;">
+            <h3>لماذا تختارنا؟</h3>
+            <p>نوفر لك ضمان حقيقي على جودة وثبات العطر، مع توصيل سريع لكل مناطق بغداد.</p>
+        </section>
+    </div>
+
+    <div id="shop" class="page">
+        <h2 style="text-align: center; margin-bottom: 40px;">أحدث العطور</h2>
+        <div class="products-grid">
+            
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=500&q=80" alt="Chanel">
+                <div class="product-info">
+                    <h3>شانيل بلو</h3>
+                    <span class="price">85,000 د.ع</span>
+                    <button class="btn-order" onclick="whatsappOrder('شانيل بلو')">طلب عبر واتساب</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=500&q=80" alt="Dior">
+                <div class="product-info">
+                    <h3>ديور هوم</h3>
+                    <span class="price">95,000 د.ع</span>
+                    <button class="btn-order" onclick="whatsappOrder('ديور هوم')">طلب عبر واتساب</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?auto=format&fit=crop&w=500&q=80" alt="Sauvage">
+                <div class="product-info">
+                    <h3>سوفاج</h3>
+                    <span class="price">110,000 د.ع</span>
+                    <button class="btn-order" onclick="whatsappOrder('سوفاج')">طلب عبر واتساب</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; 2024 لمسة عطر</p>
+        <div class="contact-info">
+            <p>📍 بغداد - الكرادة - قرب ساحة كهرمانة</p>
+            <p>📞 07700000000</p>
+        </div>
+    </footer>
+
+    <script>
+        // وظيفة التنقل بين الصفحات
+        function showPage(pageId) {
+            // إخفاء كل الصفحات
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active-page');
+            });
+            // إظهار الصفحة المطلوبة
+            document.getElementById(pageId).classList.add('active-page');
+            // العودة لأعلى الصفحة
+            window.scrollTo(0, 0);
+        }
+
+        // وظيفة الطلب (تحويل للواتساب)
+        function whatsappOrder(productName) {
+            const phone = "9647700000000"; // غير الرقم لرقمك الحقيقي
+            const message = `مرحباً، أريد طلب عطر: ${productName}`;
+            const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+
+</body>
+</html>
